@@ -1,0 +1,90 @@
+\documentclass[a4paper]{report}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[bulgarian]{babel}
+
+\def\assocprof{доцент}
+\def\prof{професор}
+\def\position{\ldots}          % TODO: \assocprof или \prof
+
+\def\profarea{\ldots}          % TODO: професионално направление
+\def\statepaperno{\ldots}      % TODO: брой на държавен вестник
+\def\statepaperdate{\ldots}    % TODO: дата на държавен вестник
+\def\reviewer{\ldots}          % TODO: академична длъжност, научна степен, име, презиме, фамилия - месторабота на рецензента
+\def\reviewerprofarea{\ldots}  % TODO: професионално направление на рецензента
+\def\orderno{\ldots}           % TODO: номер на заповед
+\def\orderdate{\ldots}         % TODO: дата на заповед
+
+\def\singlecandidate{е подал документи \textbf{единствен кандидат}}
+\def\manycandidates{са подали документи \textbg{следните кандидати}}
+\def\candidatenumber{\ldots}        % TODO: \singlecandidate или \manycandidates
+\newcommand{\candidate}[1]{\item #1}
+\newenvironment{candidates}{\begin{itemize}}{\end{itemize}}
+\def\candidatename{\ldots}                % TODO: име на кандидата
+
+\def\titlecount{\ldots}                   % TODO: брой на статиите, представени за конкурса
+\def\otherdocscount{\ldots}               % TODO: брой на другите документи (във вид на служебни бележки и удостоверения от работодател, ръководител на проект, финансираща организация или възложител на проект, референции и отзиви, награди и други подходящи доказателства)
+
+\newcommand{\titletype}[2]{
+  \ifx\testforempty#2\testforempty
+  \relax
+  \else
+  #2 #1,
+  \fi}
+\newcommand{\papers}{\titletype{публикации в български и чуждестранни научни издания и научни форуми}}
+\newcommand{\studia}{\titletype{студии}}
+\newcommand{\monographs}{\titletype{монографии}}
+\newcommand{\books}{\titletype{книги}}
+\newcommand{\patents}{\titletype{свидетелства и патенти}}
+\newcommand{\textbooks}{\titletype{учебници и учебни пособия}}
+
+\begin{document}
+
+\begin{center}
+  \Large\bfseries\MakeUppercase{Становище}\\
+  % FIXME: разстояние между редовете
+  \small
+  по конкурс за заемане на академична длъжност\\
+  ``\position''\\
+  в професионално направление \position,\\
+  за нуждите на Софийски университет ``Св. Климент Охридски'' (СУ),\\
+  Факултет по математика и информатика (ФМИ),\\
+  обявен в ДВ бр. \statepaperno\ от \statepaperdate\ и на интернет страниците на ФМИ и СУ
+\end{center}
+
+Становището е изготвено от \reviewer, \reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед № \orderno/\orderdate на Ректора на Софийския университет.
+
+За участие в обявения конкурс \candidatenumber:
+
+\begin{candidates}
+\candidate{\ldots} % TODO: списък с кандидати с академична длъжност, научна степен, име, презиме, фамилия, научна организация
+\end{candidates}
+
+\begin{enumerate}[label=\textbf{\Roman*.}]
+\item \textbf{Общо описание на представените материали\\
+    За всеки от кандидатите се дава информация по точки от 1 до 8:}
+
+  \begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{Данни за кандидатурата}
+
+    Представените по конкурса документи от кандидата съответстват на изискванията на ЗРАСРБ, ППЗРАСРБ и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ ``Св. Климент Охридски'' (ПУРПНСЗАДСУ).
+
+    За участие в конкурса кандидатът \candidatename\ е представил списък от общо \titlecount\ заглавия, в т.ч
+    % TODO: да се попълнят бройките
+    \papers{\ldots}
+    \studia{}
+    \monographs{}
+    \books{}
+    \patents{}
+    \textbooks{}.
+
+    Представени са \otherdocscount\ на брой други документи, покрепящи постиженията на кандидата.
+    
+    % TODO: Бележки и коментар по документите.
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
