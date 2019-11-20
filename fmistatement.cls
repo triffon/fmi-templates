@@ -66,7 +66,7 @@
 \def\fmi@candidate#1{\item #1} % академична длъжност, научна степен, име, презиме, фамилия, научна организация
 
 % добавяне на нов кандидат към списъка с кандидати
-\newcommand{\candidate}[1]{
+\newcommand{\addcandidate}[1]{
   \g@addto@macro\fmi@candidatelist{\item #1}
   \ifx\fmi@candidatenumber\undefined
   \def\fmi@candidatenumber{\fmi@singlecandidate}
@@ -78,6 +78,9 @@
 \def\fmi@candidatename{\ldots}            % име на кандидата
 \newcommand{\candidatename}[1]{
   \def\fmi@candidatename{#1}}
+
+% команда за рефериране на името на кандидата
+\def\candidate{\fmi@candidatename}
 
 \newcounter{fmi@titlecount}
 
@@ -202,7 +205,7 @@
 
       Представените по конкурса документи от кандидата съответстват на изискванията на ЗРАСРБ, ППЗРАСРБ и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ ``Св. Климент Охридски'' (ПУРПНСЗАДСУ).
 
-      За участие в конкурса кандидатът \candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч \fmi@titlelist.
+      За участие в конкурса кандидатът \fmi@candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч \fmi@titlelist.
 
       Представени са \fmi@otherdocscount\ на брой други документи, покрепящи постиженията на кандидата.
 
