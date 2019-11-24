@@ -25,6 +25,13 @@
 % настройка на отстъпи
 \RequirePackage[a4paper, margin=2cm]{geometry}
 
+% автоматична първа главна буква
+\RequirePackage{datatool-base}
+\RequirePackage{mfirstuc}
+
+% автоматичен интервал при нужда
+\RequirePackage{xspace}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Команди за различните компоненти на становището %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,7 +87,11 @@
   \def\fmi@candidatename{#1}}
 
 % команда за рефериране на името на кандидата
-\def\candidate{\fmi@candidatename}
+% с малка първа буква
+\def\candidate{\fmi@candidatename\xspace}
+
+% голяма бърва буква
+\def\Candidate{\xmakefirstuc{\fmi@candidatename}\xspace}
 
 \newcounter{fmi@titlecount}
 
