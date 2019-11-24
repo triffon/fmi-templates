@@ -114,7 +114,7 @@
 \newcommand{\patents}{\fmi@titletype{свидетелства и патенти}}
 \newcommand{\textbooks}{\fmi@titletype{учебници и учебни пособия}}
 
-\def\fmi@otherdocscomment{\ldots}     % Бележки и коментар по документите
+\def\fmi@otherdocscomment{}           % Бележки и коментар по документите
 \newcommand{\otherdocscomment}[1]{
   \def\fmi@otherdocscomment{#1}}
 
