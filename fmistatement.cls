@@ -3,31 +3,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmistatement}[2019/11/20 v0.2 Faculty of Mathematics and Informatics statement template]
+\ProvidesClass{fmistatement}[2019/11/26 v0.3 Faculty of Mathematics and Informatics statement template]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
-\RequirePackage[bulgarian]{babel}
+\RequirePackageWithOptions{babel}
 
 \DeclareOption{bulgarian}{
   % български език
+
   \def\assocprof{доцент}
   \def\prof{професор}
 
   \def\fmi@singlecandidate{е подал документи \textbf{единствен кандидат}}
   \def\fmi@manycandidates{са подали документи \textbf{следните кандидати}}
 
-  \newcommand{\papers}{\fmi@titletype{публикации в български и чуждестранни научни издания и научни форуми}}
-  \newcommand{\studia}{\fmi@titletype{студии}}
-  \newcommand{\monographs}{\fmi@titletype{монографии}}
-  \newcommand{\books}{\fmi@titletype{книги}}
-  \newcommand{\patents}{\fmi@titletype{свидетелства и патенти}}
-  \newcommand{\textbooks}{\fmi@titletype{учебници и учебни пособия}}
+  \def\papers{\fmi@titletype{публикации в български и чуждестранни научни издания и научни форуми}}
+  \def\studia{\fmi@titletype{студии}}
+  \def\monographs{\fmi@titletype{монографии}}
+  \def\books{\fmi@titletype{книги}}
+  \def\patents{\fmi@titletype{свидетелства и патенти}}
+  \def\textbooks{\fmi@titletype{учебници и учебни пособия}}
 
   \def\fmi@confirm{%
     \if\fmi@conclusion0%
-    не \fi%
+    НЕ \fi%
     потвърждавам}
   \def\fmi@evaluation{%
     \if\fmi@conclusion0%
@@ -36,14 +37,14 @@
     \fi}
   \def\fmi@recommendation{%
     \if\fmi@conclusion0%
-    не \fi%
+    НЕ \fi%
     препоръчвам}
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%% Структура на становището %%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \newcommand{\statementhead}{
+  \def\statementhead{
     \begin{center}
       \onehalfspacing
       \Large\bfseries\MakeUppercase{Становище}\\[2ex]
@@ -57,7 +58,7 @@
       \vspace{3ex}
     \end{center}}
 
-  \newcommand{\statementbody}{
+  \def\statementbody{
     Становището е изготвено от \fmi@reviewer, \fmi@reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
 
     За участие в обявения конкурс \fmi@candidatenumber:
@@ -72,7 +73,7 @@
       \begin{enumerate}[label=\textbf{\arabic*.}]
       \item \textbf{Данни за кандидатурата}
 
-        Представените по конкурса документи от кандидата съответстват на изискванията на ЗРАСРБ, ППЗРАСРБ и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ ``Св. Климент Охридски'' (ПУРПНСЗАДСУ).
+        Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ ``Св. Климент Охридски'' (\nohyphens{ПУРПНСЗАДСУ}).
 
         За участие в конкурса кандидатът \fmi@candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч \fmi@titlelist.
 
@@ -91,7 +92,7 @@
 
         След подробен преглед на представените научни трудове установих, че:
         \begin{enumerate}[label=\alph*)]
-        \item научните трудове отговарят на минималните национални изисквания (по чл. 2б, ал. 2 и 3 на ЗРАСРБ) и съответно на допълнителните изисквания на СУ ``Св. Климент Охридски'' за заемане на академичната длъжност \fmi@position в научната област и професионално направление на конкурса;
+        \item научните трудове отговарят на минималните национални изисквания (по чл. 2б, ал. 2 и 3 на \nohyphens{ЗРАСРБ}) и съответно на допълнителните изисквания на СУ ``Св. Климент Охридски'' за заемане на академичната длъжност \fmi@position в научната област и професионално направление на конкурса;
         \item представените от кандидата научни трудове не повтарят такива от предишни процедури за придобиване на научно звание и академична длъжност;
         \item няма доказано по законоустановения ред плагиатство в представените по конкурса научни трудове.
         \end{enumerate}
@@ -114,7 +115,7 @@
 
       \item \textbf{Заключение за кандидатурата}
 
-        След като се запознах с представените в конкурса материали и научни трудове и въз основа на направения анализ на тяхната значимост и съдържащи се в тях научни и научно-приложни приноси, \fmi@confirm, че научните постижения отговарят на изискванията на ЗРАСРБ, Правилника за приложението му и съответния Правилник на СУ ``Св. Климент Охридски'' за заемане от кандидата на академичната длъжност \fmi@position в научната област и професионално направление на конкурса. В частност кандидатът удовлетворява минималните национални изисквания в професионалното направление и не е установено плагиатство в представените по конкурса научни трудове.
+        След като се запознах с представените в конкурса материали и научни трудове и въз основа на направения анализ на тяхната значимост и съдържащи се в тях научни и научно-приложни приноси, \fmi@confirm, че научните постижения отговарят на изискванията на \nohyphens{ЗРАСРБ}, Правилника за приложението му и съответния Правилник на СУ ``Св. Климент Охридски'' за заемане от кандидата на академичната длъжност \fmi@position в научната област и професионално направление на конкурса. В частност кандидатът удовлетворява минималните национални изисквания в професионалното направление и не е установено плагиатство в представените по конкурса научни трудове.
 
         Давам своята \textbf{\fmi@evaluation} оценка на кандидатурата.
       \end{enumerate}
@@ -124,13 +125,136 @@
       Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ ``Св. Климент Охридски'' да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@profarea.
     \end{enumerate}}
 
-  \newcommand{\statementfoot}{
+  \def\statementfoot{
     \vspace{5ex}
     \begin{tabular*}\textwidth{l@{\extracolsep{\fill}}p{22em}}
       \@date & Изготвил становището: \makebox[10em]\hrulefill\\
              & \small\fmi@reviewer
     \end{tabular*}}
 
+}
+
+\DeclareOption{english}{
+  % English
+  \def\assocprof{Associate Professor}
+  \def\prof{Professor}
+
+  \def\fmi@singlecandidate{A \textbf{single candidate} has submitted an application}
+  \def\fmi@manycandidates{\textbf{The following candidates} have submitted applications}
+
+  \def\papers{\fmi@titletype{publications in domestic and international scientific issues and conferences}}
+  \def\studia{\fmi@titletype{studia}}
+  \def\monographs{\fmi@titletype{monographs}}
+  \def\books{\fmi@titletype{books}}
+  \def\patents{\fmi@titletype{certificates and patents}}
+  \def\textbooks{\fmi@titletype{textbooks and teaching materials}}
+
+  \def\fmi@confirm{%
+    \if\fmi@conclusion0%
+    DO NOT \fi%
+    confirm}
+  \def\fmi@evaluation{%
+    \if\fmi@conclusion0%
+    negative%
+    \else positive%
+    \fi}
+  \def\fmi@recommendation{%
+    \if\fmi@conclusion0%
+    DO NOT \fi%
+    recommend}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%% Структура на становището %%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \def\statementhead{
+    \begin{center}
+      \onehalfspacing
+      \Large\bfseries\MakeUppercase{Statement}\\[2ex]
+      \small
+      on the competition for the academic position\\
+      \fmi@position\\
+      in professional field \fmi@profarea,\\
+      at Sofia University ``St. Kliment Ohridski'' (SU),\\
+      Faculty of Mathematics and Informatics,\\
+      announced in State Gazette No. \fmi@statepaperno\ / \fmi@statepaperdate\ and the internet sites of FMI and SU
+      \vspace{3ex}
+    \end{center}}
+
+  \def\statementbody{
+    This statement is written and submitted by \fmi@reviewer, \fmi@reviewerprofarea, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+
+    \fmi@candidatenumber\ for this competition:
+
+    \begin{itemize}
+      \fmi@candidatelist
+    \end{itemize}
+
+    \begin{enumerate}[label=\textbf{\Roman*.}]
+    \item \textbf{General Description of the Submitted Documents:}
+
+      \begin{enumerate}[label=\textbf{\arabic*.}]
+      \item \textbf{Application Details}
+
+        The documents submitted by the candidate are in full compliance with the requirements of the Academic Staff Development Act (\nohyphens{ZRASRB}), the Regulations Act for the Implementation of \nohyphens{ZRASRB} (\nohyphens{PPZRASRB}), and the Regulations Act about the Terms and Conditions for Acquisition of Academic Degrees and Occupation of Academic Positions at SU (\nohyphens{PURPNSZADSU}).
+
+        For the purposes of the competition \fmi@candidatename\ has presented a total of \arabic{fmi@titlecount} titles, including \fmi@titlelist.
+
+        \ifnum\fmi@otherdocscount>0{%
+          The candidate has submitted a total of \fmi@otherdocscount\ additional documents supporting professional achievements.}\else{The candidate has not submitted any further documents in addition to the documents required by way of procedure.}\fi
+
+        \fmi@otherdocscomment
+
+      \item \textbf{Short Biographical Data}
+
+        \fmi@candidatedata
+
+      \item \textbf{General Evaluation of Scientific Work and Professional Achievements}
+
+        \fmi@resultsreview
+
+        After a detailed review of the submitted scientific publications I confirm that:
+        \begin{enumerate}[label=\alph*)]
+        \item the sumitted publications are in full compliance of the minimal national requirements under Art. 2B (2) and (3) of \nohyphens{ZRASRB}) and the additional requirements of SU for the academic position \fmi@position\ in the professional field of this competition
+        \item none of the submitted publications have been submitted in a preceding procedure for acquiring a scientific title or an academic position
+        \item there is no lawful evidence for plagiarism in the submitted publications.
+        \end{enumerate}
+
+      \item \textbf{Description and Evaluation of Teaching Activities}
+
+        \fmi@teachingreview
+
+      \item \textbf{Analysis of the Content of the Theoretical and Applied Contributions Described in the Submitted Publications}
+
+        \fmi@scientificreview
+
+      \item \textbf{Critical Remarks and Recommendations}
+
+        \fmi@recommendations
+
+      \item \textbf{Personal Impressions}
+
+        \fmi@personalcomments
+
+      \item \textbf{Conclusion}
+
+        Based on the review of the documents and scientific publications submitted for this competition, as well as on the analysis of their significance and the theoretical and applied contributions, I hereby \fmi@confirm\ that the scientific achievements of the candidate meet and exceed the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{PURPNSZADSU} for acquiring the academit position \fmi@position in the scientific and professional field of this competition.
+        More specifically, the candidate satisfies the minimal national requirements of the professional field and no plagiarism has been detected in the submitted scientific publications submitted.
+
+        I hereby state my \textbf{\fmi@evaluation} assessment of the application of \fmi@candidatename.
+      \end{enumerate}
+
+    \item \textbf{\MakeUppercase{General Conclusion}}
+
+      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the Faculty of Mathematics and Informatics at Sofia University ``St. Kliment Ohridski'' to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@profarea.
+    \end{enumerate}}
+
+  \def\statementfoot{
+    \vspace{5ex}
+    \begin{tabular*}\textwidth{l@{\extracolsep{\fill}}p{22em}}
+      \@date & Prepared by: \makebox[10em]\hrulefill\\
+             & \small\fmi@reviewer
+    \end{tabular*}}
 }
 
 % предаване на всички непознати опции към базовия клас report
@@ -160,6 +284,9 @@
 
 % контролиране на разстояние между редовете
 \RequirePackage{setspace}
+
+% контролиране на сричкопренасянето
+\RequirePackage{hyphenat}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Команди за различните компоненти на становището %%%%%%%
