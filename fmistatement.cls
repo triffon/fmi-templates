@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmistatement}[2019/11/20 v0.1 Faculty of Mathematics and Informatics statement template]
+\ProvidesClass{fmistatement}[2019/11/20 v0.2 Faculty of Mathematics and Informatics statement template]
 
 % предаване на всички непознати опции към базовия клас report
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
@@ -31,6 +31,9 @@
 
 % автоматичен интервал при нужда
 \RequirePackage{xspace}
+
+% контролиране на разстояние между редовете
+\RequirePackage{setspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Команди за различните компоненти на становището %%%%%%%
@@ -188,8 +191,8 @@
 
 \newcommand{\statementhead}{
   \begin{center}
-    \Large\bfseries\MakeUppercase{Становище}\\
-    % FIXME: разстояние между редовете
+    \onehalfspacing
+    \Large\bfseries\MakeUppercase{Становище}\\[2ex]
     \small
     по конкурс за заемане на академична длъжност\\
     \fmi@position\\
@@ -197,10 +200,11 @@
     за нуждите на Софийски университет ``Св. Климент Охридски'' (СУ),\\
     Факултет по математика и информатика (ФМИ),\\
     обявен в ДВ бр. \fmi@statepaperno\ от \fmi@statepaperdate\ и на интернет страниците на ФМИ и СУ
+    \vspace{3ex}
   \end{center}}
 
 \newcommand{\statementbody}{
-  Становището е изготвено от \fmi@reviewer, \fmi@reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед №\fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
+  Становището е изготвено от \fmi@reviewer, \fmi@reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
 
   За участие в обявения конкурс \fmi@candidatenumber:
 
