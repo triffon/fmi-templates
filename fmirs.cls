@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/11/26 v0.4.1 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirs}[2019/11/26 v0.4.2 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -222,7 +222,7 @@
       in professional field \fmi@profarea,\\
       at Sofia University ``St. Kliment Ohridski'' (SU),\\
       Faculty of Mathematics and Informatics,\\
-      announced in State Gazette No. \fmi@statepaperno\ / \fmi@statepaperdate\ and the internet sites of FMI and SU
+      announced in State Gazette No.\fmi@statepaperno/\fmi@statepaperdate\ and the internet sites of FMI and SU
       \vspace{3ex}
     \end{center}}
 
@@ -260,8 +260,8 @@
 
         After a detailed review of the submitted scientific publications I confirm that:
         \begin{enumerate}[label=\alph*)]
-        \item the sumitted publications are in full compliance of the minimal national requirements under Art. 2B (2) and (3) of \nohyphens{ZRASRB}) and the additional requirements of SU for the academic position \fmi@position\ in the professional field of this competition
-        \item none of the submitted publications have been submitted in a preceding procedure for acquiring a scientific title or an academic position
+        \item the sumitted publications are in full compliance with the minimal national requirements under Art. 2B (2) and (3) of \nohyphens{ZRASRB}, as well as with the additional requirements of SU for the academic position \fmi@position\ in the professional field of this competition;
+        \item none of the submitted publications have been submitted in a preceding procedure for acquiring a scientific title or an academic position;
         \item there is no lawful evidence for plagiarism in the submitted publications.
         \end{enumerate}
 
