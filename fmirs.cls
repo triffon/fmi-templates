@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/11/26 v0.4.2 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirs}[2019/11/26 v0.5 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -77,22 +77,22 @@
   %%%%%% Структура на документа %%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \def\statementhead{
+  \def\fmi@rshead{
     \begin{center}
       \onehalfspacing
       \Large\bfseries\MakeUppercase{\fmi@documenttype}\\[2ex]
       \small
       по конкурс за заемане на академична длъжност\\
       \fmi@position\\
-      в професионално направление \fmi@profarea,\\
+      в професионално направление \fmi@field,\\
       за нуждите на Софийски университет ``Св. Климент Охридски'' (СУ),\\
       Факултет по математика и информатика (ФМИ),\\
-      обявен в ДВ бр. \fmi@statepaperno\ от \fmi@statepaperdate\ и на интернет страниците на ФМИ и СУ
+      обявен в ДВ бр. \fmi@stategazetteno\ от \fmi@stategazettedate\ и на интернет страниците на ФМИ и СУ
       \vspace{3ex}
     \end{center}}
 
-  \def\statementbody{
-    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
+  \def\fmi@rsbody{
+    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
 
     За участие в обявения конкурс \fmi@candidatenumber:
 
@@ -110,10 +110,13 @@
 
         За участие в конкурса кандидатът \fmi@candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч. \fmi@titlelist.
 
-        \ifnum\fmi@otherdocscount>0{Представени са \fmi@otherdocscount\ на брой други документи, покрепящи постиженията на кандидата.}\else{Допълнителни документи извън изискуемите по процедурата не са приложени.}\fi
-
-
+        \ifnum\fmi@otherdocscount>0
+        Представени са \fmi@otherdocscount\ на брой други документи, покрепящи постиженията на кандидата.
+        
         \fmi@otherdocscomment
+        \else
+        Допълнителни документи извън изискуемите по процедурата не са приложени.
+        \fi
 
         \fmi@generaldocscomment
 
@@ -157,16 +160,15 @@
 
     \item \textbf{\MakeUppercase{Общо заключение}}
 
-      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ ``Св. Климент Охридски'' да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@profarea.
+      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ ``Св. Климент Охридски'' да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
     \end{enumerate}}
 
-  \def\statementfoot{
+  \def\fmi@rsfoot{
     \vspace{5ex}
     \begin{tabular*}\textwidth{l@{\extracolsep{\fill}}p{22em}}
       \@date & Изготвил \fmi@thedocument: \makebox[10em]\hrulefill\\
              & \small\fmi@reviewer
     \end{tabular*}}
-
 }
 
 \DeclareOption{english}{
@@ -208,26 +210,26 @@
     DO NOT \fi%
     recommend}
 
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%% Структура на становището %%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%% Структура на документа %%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \def\statementhead{
+  \def\fmi@rshead{
     \begin{center}
       \onehalfspacing
       \Large\bfseries\MakeUppercase{\fmi@documenttype}\\[2ex]
       \small
       on the competition for the academic position\\
       \fmi@position\\
-      in professional field \fmi@profarea,\\
+      in professional field \fmi@field,\\
       at Sofia University ``St. Kliment Ohridski'' (SU),\\
       Faculty of Mathematics and Informatics,\\
-      announced in State Gazette No.\fmi@statepaperno/\fmi@statepaperdate\ and the internet sites of FMI and SU
+      announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and the internet sites of FMI and SU
       \vspace{3ex}
     \end{center}}
 
-  \def\statementbody{
-    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerprofarea, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+  \def\fmi@rsbody{
+    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
@@ -245,10 +247,13 @@
 
         For the purposes of the competition \fmi@candidatename\ has presented a total of \arabic{fmi@titlecount} titles, including \fmi@titlelist.
 
-        \ifnum\fmi@otherdocscount>0{%
-          The candidate has submitted a total of \fmi@otherdocscount\ additional documents supporting professional achievements.}\else{The candidate has not submitted any further documents in addition to the documents required by way of procedure.}\fi
+        \ifnum\fmi@otherdocscount>0
+        The candidate has submitted a total of \fmi@otherdocscount\ additional documents supporting professional achievements.
 
         \fmi@otherdocscomment
+        \else
+        The candidate has not submitted any further documents in addition to the documents required by way of procedure.
+        \fi
 
       \item \textbf{Short Biographical Data}
 
@@ -291,10 +296,10 @@
 
     \item \textbf{\MakeUppercase{General Conclusion}}
 
-      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the Faculty of Mathematics and Informatics at Sofia University ``St. Kliment Ohridski'' to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@profarea.
+      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the Faculty of Mathematics and Informatics at Sofia University ``St. Kliment Ohridski'' to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
     \end{enumerate}}
 
-  \def\statementfoot{
+  \def\fmi@rsfoot{
     \vspace{5ex}
     \begin{tabular*}\textwidth{l@{\extracolsep{\fill}}p{22em}}
       \@date & Prepared by: \makebox[10em]\hrulefill\\
@@ -333,33 +338,94 @@
 % контролиране на сричкопренасянето
 \RequirePackage{hyphenat}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%% Команди за различните компоненти на становището %%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Генерични команди за управление на променливи %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\fmi@profarea{\ldots}          % професионално направление
-\newcommand{\profarea}[1]{
-  \def\fmi@profarea{#1}}
+% генерични команди за създаване на име на променлива и име на съответна команда
+\newcommand{\fmi@varname}[1]{\csname fmi@#1\endcsname}
+\newcommand{\fmi@cmdname}[1]{\csname #1\endcsname}
 
-\def\fmi@statepaperno{\ldots}      % брой на държавен вестник
-\def\fmi@statepaperdate{\ldots}    % дата на държавен вестник
-\newcommand{\statepaper}[2]{
-  \def\fmi@statepaperno{#1}
-  \def\fmi@statepaperdate{#2}}
+% генеричина команда за създаване на нова променлива, установяване на стойност по подразбиране
+% и на команда за задаването на стойност на променливата
+\newcommand{\fmi@newvar}[2]{
+  \expandafter\expandafter\expandafter\def\fmi@varname{#1}{#2}
+  \expandafter\expandafter\expandafter\newcommand\fmi@cmdname{#1}[1]{
+    \expandafter\expandafter\expandafter\def\fmi@varname{#1}{##1}}
+}
 
-\def\fmi@reviewer{\ldots}          % академична длъжност, научна степен,
-% име, презиме, фамилия - месторабота на рецензента
+% генеричина команда за създаване на две нови променлива, установяване на стойности по подразбиране
+% и на команда за едновременното задаване на стойности на променливите
+% \edef\fmi@newvars#1#2#3#4#5{
+\newcommand{\fmi@newvars}[5]{
+  \expandafter\expandafter\expandafter\def\fmi@varname{#1#2}{#4}
+  \expandafter\expandafter\expandafter\def\fmi@varname{#1#3}{#5}
+  \expandafter\expandafter\expandafter\newcommand\fmi@cmdname{#1}[2]{
+    \expandafter\expandafter\expandafter\def\fmi@varname{#1#2}{##1}
+    \expandafter\expandafter\expandafter\def\fmi@varname{#1#3}{##2}}
+}
 
-\def\fmi@reviewerprofarea{\ldots}  % професионално направление на рецензента
-\newcommand{\reviewer}[2]{
-  \def\fmi@reviewer{#1}
-  \def\fmi@reviewerprofarea{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Обикновени променливи %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\fmi@orderno{\ldots}           % номер на заповед
-\def\fmi@orderdate{\ldots}         % дата на заповед
-\newcommand{\order}[2]{
-  \def\fmi@orderno{#1}
-  \def\fmi@orderdate{#2}}
+% професионално направление
+\fmi@newvar{field}\ldots
+
+% брой и дата на държавен вестник
+\fmi@newvars{stategazette}{no}{date}\ldots\ldots
+
+% рецензент: академична длъжност, научна степен,  име, презиме, фамилия - месторабота на рецензента
+% професионално направление на рецензента
+\fmi@newvars{reviewer}{}{field}\ldots\ldots
+
+% номер и дата на заповед
+\fmi@newvars{order}{no}{date}\ldots\ldots
+
+% име на кандидата
+\fmi@newvar{candidatename}\ldots
+
+% брой на другите документи (във вид на служебни бележки и удостоверения от работодател,
+% ръководител на проект, финансираща организация или възложител на проект,
+% референции и отзиви, награди и други подходящи доказателства
+
+% Бележки и коментар по документите
+\fmi@newvars{otherdocs}{count}{comment}0{}
+
+% Общ коментар по структурирането на документите
+\fmi@newvar{generaldocscomment}{}
+
+% Кратки професионални и биографични данни за кандидата
+\fmi@newvar{candidatedata}\ldots
+
+% Дава се оценка на научните резултати на кандидата.
+% В кои научни области и по кои проблеми е работил
+% и продължава да работи кандидатът.
+\fmi@newvar{resultsreview}\ldots
+
+% Оценка на учебно-педагогическа дейност на кандидата.
+\fmi@newvar{teachingreview}\ldots
+
+% Оценяват се научните и научно-приложните приноси на кандидата,
+% като се заяви ясно какъв е характерът им:
+% нови теории, хипотези, методи и др.; обогатяване на съществуващи знания;
+% приложение на научни постижения в практиката.
+% Отражение на резултатите на кандидата в трудовете на други автори.
+% Числови показатели – цитати, импакт-фактор и др.
+% При колективни публикации да се отрази приносът на кандидата.
+\fmi@newvar{scientificreview}\ldots
+
+% Посочват се критични бележки, отправени към рецензираните трудове
+% по отношение на: постановка; анализи и обобщения; методично равнище;
+% точност и пълнота на резултатите; литературна осведоменост.
+\fmi@newvar{recommendations}\ldots
+
+% лични впечатления от кандидата
+\fmi@newvar{personalcomments}\ldots
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Сложни променливи и команди за различните компоненти на документа %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\fmi@candidatelist{}
 \def\fmi@candidate#1{\item #1} % академична длъжност, научна степен, име, презиме, фамилия, научна организация
@@ -374,22 +440,14 @@
   \fi
 }
 
-\def\fmi@candidatename{\ldots}            % име на кандидата
-\newcommand{\candidatename}[1]{
-  \def\fmi@candidatename{#1}}
-
 % команда за рефериране на името на кандидата
 % с малка първа буква
 \def\candidate{\fmi@candidatename\xspace}
 
-% голяма бърва буква
+% голяма първа буква
 \def\Candidate{\xmakefirstuc{\fmi@candidatename}\xspace}
 
 \newcounter{fmi@titlecount}
-
-\def\fmi@otherdocscount{0}                % брой на другите документи (във вид на служебни бележки и удостоверения от работодател, ръководител на проект, финансираща организация или възложител на проект, референции и отзиви, награди и други подходящи доказателства)
-\newcommand{\otherdocscount}[1]{
-  \def\fmi@otherdocscount{#1}}
 
 \newcommand{\fmi@titletype}[2]{
   \addtocounter{fmi@titlecount}{#2}
@@ -399,51 +457,6 @@
   \edef\fmi@titlelist{\fmi@titlelist, #2 #1}
   \fi}
 
-\def\fmi@otherdocscomment{}           % Бележки и коментар по документите
-
-\newcommand{\otherdocscomment}[1]{
-  \def\fmi@otherdocscomment{#1}}
-
-\def\fmi@generaldocscomment{}         % Общ коментар по структурирането на документите
-
-\newcommand{\generaldocscomment}[1]{
-  \def\fmi@generaldocscomment{#1}}
-
-\def\fmi@candidatedata{\ldots}        % Кратки професионални и биографични данни за кандидата
-\newcommand{\candidatedata}[1]{
-  \def\fmi@candidatedata{#1}}
-
-\def\fmi@resultsreview{\ldots}        % Дава се оценка на научните резултати на кандидата.
-% В кои научни области и по кои проблеми е работил
-% и продължава да работи кандидатът.
-\newcommand{\resultsreview}[1]{
-  \def\fmi@resultsreview{#1}}
-
-\def\fmi@teachingreview{\ldots}       % Оценка на учебно-педагогическа дейност на кандидата.
-\newcommand{\teachingreview}[1]{
-  \def\fmi@teachingreview{#1}}
-
-\def\fmi@scientificreview{\ldots}     % Оценяват се научните и научно-приложните приноси на кандидата,
-% като се заяви ясно какъв е характерът им:
-% нови теории, хипотези, методи и др.; обогатяване на съществуващи знания;
-% приложение на научни постижения в практиката.
-% Отражение на резултатите на кандидата в трудовете на други автори.
-% Числови показатели – цитати, импакт-фактор и др.
-% При колективни публикации да се отрази приносът на кандидата.
-\newcommand{\scientificreview}[1]{
-  \def\fmi@scientificreview{#1}}
-
-\def\fmi@recommendations{\ldots}      % Посочват се критични бележки, отправени към рецензираните трудове
-% по отношение на: постановка; анализи и обобщения; методично равнище;
-% точност и пълнота на резултатите; литературна осведоменост.
-
-\newcommand{\recommendations}[1]{
-  \def\fmi@recommendations{#1}}
-
-\def\fmi@personalcomments{\ldots}      % лични впечатления от кандидата
-\newcommand{\personalcomments}[1]{
-  \def\fmi@personalcomments{#1}}
-
 \def\fmi@conclusion{1}                % 1 за положителна оценка, 0 за отрицателна
 
 \newcommand{\positiveconclusion}{
@@ -451,10 +464,10 @@
 \newcommand{\negativeconclusion}{
   \def\fmi@conclusion{0}}
 
-\newcommand{\makestatement}{
-  \statementhead
+\newcommand{\makedocument}{
+  \fmi@rshead
 
-  \statementbody
+  \fmi@rsbody
 
-  \statementfoot
+  \fmi@rsfoot
 }
