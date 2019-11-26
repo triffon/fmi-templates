@@ -3,18 +3,51 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmistatement}[2019/11/26 v0.3 Faculty of Mathematics and Informatics statement template]
+\ProvidesClass{fmirs}[2019/11/26 v0.4 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
-\RequirePackageWithOptions{babel}
+\RequirePackage{babel}
+
+% становище
+\DeclareOption{statement}{
+  \def\fmi@documenttype{\fmi@statement}
+  \def\fmi@documentpreparedby{\fmi@statementpreparedby}
+  \def\fmi@thedocument{\fmi@thestatement}
+}
+
+% рецензия
+\DeclareOption{review}{
+  \def\fmi@documenttype{\fmi@review}
+  \def\fmi@documentpreparedby{\fmi@reviewpreparedby}
+  \def\fmi@thedocument{\fmi@thereview}
+}
+
+% доцент
+\DeclareOption{assocprof}{
+  \def\fmi@position{``\fmi@assocprof''}
+}
+
+% професор
+\DeclareOption{prof}{
+  \def\fmi@position{``\fmi@prof''}
+}
 
 \DeclareOption{bulgarian}{
   % български език
+  \PassOptionsToPackage{bulgarian}{babel}
 
-  \def\assocprof{доцент}
-  \def\prof{професор}
+  \def\fmi@statement{становище}
+  \def\fmi@statementpreparedby{Становището е изготвено от}
+  \def\fmi@thestatement{становището}
+
+  \def\fmi@review{рецензия}
+  \def\fmi@reviewpreparedby{Рецензията е изготвена от}
+  \def\fmi@thereview{рецензията}
+
+  \def\fmi@assocprof{доцент}
+  \def\fmi@prof{професор}
 
   \def\fmi@singlecandidate{е подал документи \textbf{единствен кандидат}}
   \def\fmi@manycandidates{са подали документи \textbf{следните кандидати}}
@@ -40,14 +73,14 @@
     НЕ \fi%
     препоръчвам}
 
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%% Структура на становището %%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%% Структура на документа %%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \def\statementhead{
     \begin{center}
       \onehalfspacing
-      \Large\bfseries\MakeUppercase{Становище}\\[2ex]
+      \Large\bfseries\MakeUppercase{\fmi@documenttype}\\[2ex]
       \small
       по конкурс за заемане на академична длъжност\\
       \fmi@position\\
@@ -59,7 +92,7 @@
     \end{center}}
 
   \def\statementbody{
-    Становището е изготвено от \fmi@reviewer, \fmi@reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
+    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerprofarea, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
 
     За участие в обявения конкурс \fmi@candidatenumber:
 
@@ -128,7 +161,7 @@
   \def\statementfoot{
     \vspace{5ex}
     \begin{tabular*}\textwidth{l@{\extracolsep{\fill}}p{22em}}
-      \@date & Изготвил становището: \makebox[10em]\hrulefill\\
+      \@date & Изготвил \fmi@thedocument: \makebox[10em]\hrulefill\\
              & \small\fmi@reviewer
     \end{tabular*}}
 
@@ -136,8 +169,18 @@
 
 \DeclareOption{english}{
   % English
-  \def\assocprof{Associate Professor}
-  \def\prof{Professor}
+  \PassOptionsToPackage{english}{babel}
+
+  \def\fmi@statement{statement}
+  \def\fmi@statementpreparedby{This statement is written and submitted by}
+  \def\fmi@thestatement{the statement} % не се използва
+
+  \def\fmi@review{review}
+  \def\fmi@reviewpreparedby{This review is written and submitted by}
+  \def\fmi@thereview{the review} % не се използва
+
+  \def\fmi@assocprof{Associate Professor}
+  \def\fmi@prof{Professor}
 
   \def\fmi@singlecandidate{A \textbf{single candidate} has submitted an application}
   \def\fmi@manycandidates{\textbf{The following candidates} have submitted applications}
@@ -170,7 +213,7 @@
   \def\statementhead{
     \begin{center}
       \onehalfspacing
-      \Large\bfseries\MakeUppercase{Statement}\\[2ex]
+      \Large\bfseries\MakeUppercase{\fmi@documenttype}\\[2ex]
       \small
       on the competition for the academic position\\
       \fmi@position\\
@@ -182,7 +225,7 @@
     \end{center}}
 
   \def\statementbody{
-    This statement is written and submitted by \fmi@reviewer, \fmi@reviewerprofarea, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerprofarea, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
@@ -260,8 +303,8 @@
 % предаване на всички непознати опции към базовия клас report
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 
-% български език по подразбиране
-\ExecuteOptions{bulgarian}
+% становище на български език за доцент по подразбиране
+\ExecuteOptions{statement,bulgarian,assocprof}
 
 % обработка на опциите
 \ProcessOptions
@@ -291,10 +334,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Команди за различните компоненти на становището %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\def\fmi@position{\ldots}          % позиция на конкурса
-\newcommand{\position}[1]{
-  \def\fmi@position{``#1''}}
 
 \def\fmi@profarea{\ldots}          % професионално направление
 \newcommand{\profarea}[1]{
