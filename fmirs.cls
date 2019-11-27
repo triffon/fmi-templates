@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/11/26 v0.5 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirs}[2019/11/27 v0.5.1 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -111,7 +111,11 @@
         За участие в конкурса кандидатът \fmi@candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч. \fmi@titlelist.
 
         \ifnum\fmi@otherdocscount>0
+        \ifnum\fmi@otherdocscount>1
         Представени са \fmi@otherdocscount\ на брой други документи, покрепящи постиженията на кандидата.
+        \else
+        Представен е един допълнителен документ извън изискуемите по процедурата.
+        \fi
         
         \fmi@otherdocscomment
         \else
