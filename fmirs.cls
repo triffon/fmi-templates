@@ -10,6 +10,7 @@
 \RequirePackage[T2A]{fontenc}
 \RequirePackage{babel}
 
+% TODO: да се изнесат като среди
 % становище
 \DeclareOption{statement}{
   \def\fmi@documenttype{\fmi@statement}
@@ -352,6 +353,7 @@
 
 % генеричина команда за създаване на нова променлива, установяване на стойност по подразбиране
 % и на команда за задаването на стойност на променливата
+% TODO: да се генерират среди вместо команди
 \newcommand{\fmi@newvar}[2]{
   \expandafter\expandafter\expandafter\def\fmi@varname{#1}{#2}
   \expandafter\expandafter\expandafter\newcommand\fmi@cmdname{#1}[1]{
@@ -435,6 +437,7 @@
 \def\fmi@candidate#1{\item #1} % академична длъжност, научна степен, име, презиме, фамилия, научна организация
 
 % добавяне на нов кандидат към списъка с кандидати
+% TODO: да се раздели името от институцията и да се направи команда \selectcandidate, която да замени \candidatename
 \newcommand{\addcandidate}[1]{
   \g@addto@macro\fmi@candidatelist{\item #1}
   \ifx\fmi@candidatenumber\undefined
