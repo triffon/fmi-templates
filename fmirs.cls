@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/11/27 v0.5.1 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirs}[2019/11/27 v0.5.2 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -93,7 +93,7 @@
     \end{center}}
 
   \def\fmi@rsbody{
-    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
+    \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
 
     За участие в обявения конкурс \fmi@candidatenumber:
 
@@ -234,7 +234,7 @@
     \end{center}}
 
   \def\fmi@rsbody{
-    \fmi@documentpreparedby\ \fmi@reviewer, \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
