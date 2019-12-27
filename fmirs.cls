@@ -3,26 +3,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/11/27 v0.5.2 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirs}[2019/12/27 v0.6 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
 \RequirePackage{babel}
 
-% TODO: да се изнесат като среди
 % становище
-\DeclareOption{statement}{
-  \def\fmi@documenttype{\fmi@statement}
-  \def\fmi@documentpreparedby{\fmi@statementpreparedby}
-  \def\fmi@thedocument{\fmi@thestatement}
+\newenvironment{statement}{
+  \gdef\fmi@documenttype{\fmi@statement}
+  \gdef\fmi@documentpreparedby{\fmi@statementpreparedby}
+  \gdef\fmi@thedocument{\fmi@thestatement}
+  \document
+  \fmi@rshead
+}{
+  \fmi@rsfoot
+  \enddocument
 }
 
 % рецензия
-\DeclareOption{review}{
-  \def\fmi@documenttype{\fmi@review}
-  \def\fmi@documentpreparedby{\fmi@reviewpreparedby}
-  \def\fmi@thedocument{\fmi@thereview}
+\newenvironment{review}{
+  \gdef\fmi@documenttype{\fmi@review}
+  \gdef\fmi@documentpreparedby{\fmi@reviewpreparedby}
+  \gdef\fmi@thedocument{\fmi@thereview}
+  \document
+  \fmi@rshead
+}{
+  \fmi@rsfoot
+  \enddocument
 }
 
 % доцент
@@ -42,7 +51,6 @@
   \def\fmi@statement{становище}
   \def\fmi@statementpreparedby{Становището е изготвено от}
   \def\fmi@thestatement{становището}
-
   \def\fmi@review{рецензия}
   \def\fmi@reviewpreparedby{Рецензията е изготвена от}
   \def\fmi@thereview{рецензията}
@@ -90,17 +98,17 @@
       Факултет по математика и информатика (ФМИ),\\
       обявен в ДВ бр. \fmi@stategazetteno\ от \fmi@stategazettedate\ и на интернет страниците на ФМИ и СУ
       \vspace{3ex}
-    \end{center}}
+    \end{center}
 
-  \def\fmi@rsbody{
     \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
 
     За участие в обявения конкурс \fmi@candidatenumber:
 
     \begin{itemize}
       \fmi@candidatelist
-    \end{itemize}
+    \end{itemize}}
 
+  \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\Roman*.}]
     \item \textbf{Общо описание на представените материали:}
 
@@ -117,7 +125,7 @@
         \else
         Представен е един допълнителен документ извън изискуемите по процедурата.
         \fi
-        
+
         \fmi@otherdocscomment
         \else
         Допълнителни документи извън изискуемите по процедурата не са приложени.
@@ -133,12 +141,14 @@
 
         \fmi@resultsreview
 
+        \ifnum\fmi@conclusion=1
         След подробен преглед на представените научни трудове установих, че:
         \begin{enumerate}[label=\alph*)]
         \item научните трудове отговарят на минималните национални изисквания (по чл. 2б, ал. 2 и 3 на \nohyphens{ЗРАСРБ}) и съответно на допълнителните изисквания на СУ ``Св. Климент Охридски'' за заемане на академичната длъжност \fmi@position\ в научната област и професионално направление на конкурса;
         \item представените от кандидата научни трудове не повтарят такива от предишни процедури за придобиване на научно звание и академична длъжност;
         \item няма доказано по законоустановения ред плагиатство в представените по конкурса научни трудове.
         \end{enumerate}
+        \fi
 
       \item \textbf{Характеристика и оценка на преподавателската дейност на кандидата}
 
@@ -231,17 +241,17 @@
       Faculty of Mathematics and Informatics,\\
       announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and the internet sites of FMI and SU
       \vspace{3ex}
-    \end{center}}
 
-  \def\fmi@rsbody{
-    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+      \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
     \begin{itemize}
       \fmi@candidatelist
     \end{itemize}
+  \end{center}}
 
+  \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\Roman*.}]
     \item \textbf{General Description of the Submitted Documents:}
 
@@ -343,6 +353,9 @@
 % контролиране на сричкопренасянето
 \RequirePackage{hyphenat}
 
+% за гъвкаво създаване на нови среди
+\RequirePackage{environ}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Генерични команди за управление на променливи %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -353,11 +366,20 @@
 
 % генеричина команда за създаване на нова променлива, установяване на стойност по подразбиране
 % и на команда за задаването на стойност на променливата
-% TODO: да се генерират среди вместо команди
 \newcommand{\fmi@newvar}[2]{
   \expandafter\expandafter\expandafter\def\fmi@varname{#1}{#2}
   \expandafter\expandafter\expandafter\newcommand\fmi@cmdname{#1}[1]{
     \expandafter\expandafter\expandafter\def\fmi@varname{#1}{##1}}
+}
+
+% генеричина команда за създаване на нова променлива, установяване на стойност по подразбиране
+% и на среда за задаването на стойност на променливата
+\newcommand{\fmi@newenvvar}[2]{
+  \expandafter\expandafter\expandafter\def\fmi@varname{#1}{#2}
+  \NewEnviron{#1}{%
+    \edef\fmi@tmpbody{\unexpanded{\expandafter\expandafter\expandafter\gdef\fmi@varname{#1}}%
+      {\unexpanded\expandafter{\BODY}}}%
+    \fmi@tmpbody}
 }
 
 % генеричина команда за създаване на две нови променлива, установяване на стойности по подразбиране
@@ -388,9 +410,6 @@
 % номер и дата на заповед
 \fmi@newvars{order}{no}{date}\ldots\ldots
 
-% име на кандидата
-\fmi@newvar{candidatename}\ldots
-
 % брой на другите документи (във вид на служебни бележки и удостоверения от работодател,
 % ръководител на проект, финансираща организация или възложител на проект,
 % референции и отзиви, награди и други подходящи доказателства
@@ -399,18 +418,18 @@
 \fmi@newvars{otherdocs}{count}{comment}0{}
 
 % Общ коментар по структурирането на документите
-\fmi@newvar{generaldocscomment}{}
+\fmi@newenvvar{generaldocscomment}{}
 
 % Кратки професионални и биографични данни за кандидата
-\fmi@newvar{candidatedata}\ldots
+\fmi@newenvvar{candidatedata}\ldots
 
 % Дава се оценка на научните резултати на кандидата.
 % В кои научни области и по кои проблеми е работил
 % и продължава да работи кандидатът.
-\fmi@newvar{resultsreview}\ldots
+\fmi@newenvvar{resultsreview}\ldots
 
 % Оценка на учебно-педагогическа дейност на кандидата.
-\fmi@newvar{teachingreview}\ldots
+\fmi@newenvvar{teachingreview}\ldots
 
 % Оценяват се научните и научно-приложните приноси на кандидата,
 % като се заяви ясно какъв е характерът им:
@@ -419,15 +438,15 @@
 % Отражение на резултатите на кандидата в трудовете на други автори.
 % Числови показатели – цитати, импакт-фактор и др.
 % При колективни публикации да се отрази приносът на кандидата.
-\fmi@newvar{scientificreview}\ldots
+\fmi@newenvvar{scientificreview}\ldots
 
 % Посочват се критични бележки, отправени към рецензираните трудове
 % по отношение на: постановка; анализи и обобщения; методично равнище;
 % точност и пълнота на резултатите; литературна осведоменост.
-\fmi@newvar{recommendations}\ldots
+\fmi@newenvvar{recommendations}\ldots
 
 % лични впечатления от кандидата
-\fmi@newvar{personalcomments}\ldots
+\fmi@newenvvar{personalcomments}\ldots
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Сложни променливи и команди за различните компоненти на документа %%%%%%%
@@ -436,15 +455,24 @@
 \def\fmi@candidatelist{}
 \def\fmi@candidate#1{\item #1} % академична длъжност, научна степен, име, презиме, фамилия, научна организация
 
+% брояч на добавените кандидати
+\newcounter{fmi@candidatecount}
+\setcounter{fmi@candidatecount}{0}
+
+% брояч на описаните кандидатури
+\newcounter{fmi@candidaturecount}
+\setcounter{fmi@candidatecount}{0}
+
 % добавяне на нов кандидат към списъка с кандидати
-% TODO: да се раздели името от институцията и да се направи команда \selectcandidate, която да замени \candidatename
-\newcommand{\addcandidate}[1]{
-  \g@addto@macro\fmi@candidatelist{\item #1}
+\newcommand{\addcandidate}[2]{
+  \g@addto@macro\fmi@candidatelist{\item #1, #2}
   \ifx\fmi@candidatenumber\undefined
   \def\fmi@candidatenumber{\fmi@singlecandidate}
   \else
   \def\fmi@candidatenumber{\fmi@manycandidates}
   \fi
+  \addtocounter{fmi@candidatecount}1
+  \expandafter\newcommand\csname fmi@candidatearray\the\value{fmi@candidatecount} \endcsname{#1}
 }
 
 % команда за рефериране на името на кандидата
@@ -471,10 +499,16 @@
 \newcommand{\negativeconclusion}{
   \def\fmi@conclusion{0}}
 
-\newcommand{\makedocument}{
-  \fmi@rshead
-
+\newenvironment{candidature}[1]{
+  \addtocounter{fmi@candidaturecount}1
+  \def\fmi@candidatename{\csname fmi@candidatearray\the\value{fmi@candidaturecount} \endcsname}
+  \csname #1conclusion\endcsname
+  % ако има повече от една кандидатура, да се сложи името на кандидата
+  \ifnum\value{fmi@candidatecount}>1
+  \newpage
+  {\Large\textbf{\fmi@candidatename}}
+  \fi
+  \setcounter{fmi@titlecount}0
+}{
   \fmi@rsbody
-
-  \fmi@rsfoot
 }
