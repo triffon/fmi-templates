@@ -3,12 +3,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/12/27 v0.6 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirs}[2019/12/29 v0.6.1 Faculty of Mathematics and Informatics template for reviews and statements]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
-\RequirePackage{babel}
 
 % становище
 \newenvironment{statement}{
@@ -188,7 +187,7 @@
 
 \DeclareOption{english}{
   % English
-  \PassOptionsToPackage{english}{babel}
+  \PassOptionsToPackage{main=english}{babel}
 
   \def\fmi@statement{statement}
   \def\fmi@statementpreparedby{This statement is written and submitted by}
@@ -326,13 +325,16 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 
 % становище на български език за доцент по подразбиране
-\ExecuteOptions{statement,bulgarian,assocprof}
+\ExecuteOptions{bulgarian,assocprof}
 
 % обработка на опциите
 \ProcessOptions
 
 % зареждане на базов клас report
 \LoadClass[12pt,a4paper]{report}
+
+% след като са заредени опциите, да се зареди поддръжка на съответния език
+\RequirePackage{babel}
 
 % настройка на отстъпи
 \RequirePackage[a4paper, margin=2cm]{geometry}
