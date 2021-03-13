@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirs}[2019/12/29 v0.6.1 Faculty of Mathematics and Informatics template for reviews and statements]
+\ProvidesClass{fmirsacad}[2021/03/13 v0.7 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
