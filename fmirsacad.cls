@@ -141,9 +141,9 @@
         \fmi@resultsreview
 
         \ifnum\fmi@conclusion=1
-        След подробен преглед на представените научни трудове установих, че:
+        След подробен преглед установих, че:
         \begin{enumerate}[label=\alph*)]
-        \item научните трудове отговарят на минималните национални изисквания (по чл. 2б, ал. 2 и 3 на \nohyphens{ЗРАСРБ}) и съответно на допълнителните изисквания на СУ ``Св. Климент Охридски'' за заемане на академичната длъжност \fmi@position\ в научната област и професионално направление на конкурса;
+        \item представените от кандидата научни трудове отговарят на минималните национални изисквания по чл.~2б, ал.~2 и 3 на \nohyphens{ЗРАСРБ}раздел III и приложението към чл.~1а, ал.~1 на  \nohyphens{ППЗРАСРБ} и на съответните допълнителни изисквания в \nohyphens{ПУРПНСЗАДСУ};
         \item представените от кандидата научни трудове не повтарят такива от предишни процедури за придобиване на научно звание и академична длъжност;
         \item няма доказано по законоустановения ред плагиатство в представените по конкурса научни трудове.
         \end{enumerate}
@@ -167,7 +167,8 @@
 
       \item \textbf{Заключение за кандидатурата}
 
-        След като се запознах с представените в конкурса материали и научни трудове и въз основа на направения анализ на тяхната значимост и съдържащи се в тях научни и научно-приложни приноси, \fmi@confirm, че научните постижения отговарят на изискванията на \nohyphens{ЗРАСРБ}, Правилника за приложението му и съответния Правилник на СУ ``Св. Климент Охридски'' за заемане от кандидата на академичната длъжност \fmi@position\ в научната област и професионално направление на конкурса. В частност, кандидатът удовлетворява минималните национални изисквания в професионалното направление и не е установено плагиатство в представените по конкурса научни трудове.
+        След като се запознах с представените в конкурса материали и научни трудове и въз основа на направения анализ на тяхната значимост и съдържащи се в тях научни и научно-приложни приноси, \fmi@confirm, че научните постижения отговарят на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и \nohyphens{ПУРПНСЗАДСУ} за заемане от кандидата на академичната длъжност \fmi@position\ в научната област и професионално направление на конкурса.
+        В частност, кандидатът удовлетворява минималните национални изисквания в професионалното направление и не е установено плагиатство в представените по конкурса научни трудове.
 
         Давам своята \textbf{\fmi@evaluation} оценка на кандидатурата.
       \end{enumerate}
@@ -240,15 +241,15 @@
       Faculty of Mathematics and Informatics,\\
       announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and the internet sites of FMI and SU
       \vspace{3ex}
+    \end{center}
 
-      \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
     \begin{itemize}
       \fmi@candidatelist
-    \end{itemize}
-  \end{center}}
+    \end{itemize}}
 
   \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\Roman*.}]
@@ -302,7 +303,7 @@
 
       \item \textbf{Conclusion}
 
-        Based on the review of the documents and scientific publications submitted for this competition, as well as on the analysis of their significance and the theoretical and applied contributions, I hereby \fmi@confirm\ that the scientific achievements of the candidate meet and exceed the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{PURPNSZADSU} for acquiring the academit position \fmi@position\ in the scientific and professional field of this competition.
+        Based on the review of the documents and scientific publications submitted for this competition, as well as on the analysis of their significance and the theoretical and applied contributions, I hereby \fmi@confirm\ that the scientific achievements of the candidate meet and exceed the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{PURPNSZADSU} for acquiring the academic position \fmi@position\ in the scientific and professional field of this competition.
         More specifically, the candidate satisfies the minimal national requirements of the professional field and no plagiarism has been detected in the submitted scientific publications submitted.
 
         I hereby state my \textbf{\fmi@evaluation} assessment of the application of \fmi@candidatename.
