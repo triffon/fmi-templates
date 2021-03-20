@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsdeg}[2021/03/13 v0.7 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
+\ProvidesClass{fmirsdeg}[2021/03/20 v0.7.2 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -155,7 +155,7 @@
       След подробен преглед установих, че:
       \begin{enumerate}[label=\alph*)]
       \item представените от кандидата научни трудове отговарят на минималните национални изисквания по чл.~2б, ал.~2 и 3 на \nohyphens{ЗРАСРБ}, раздел~III и приложението към чл.~1а, ал.~1 на  \nohyphens{ППЗРАСРБ} и на съответните допълнителни изисквания в \nohyphens{ПУРПНСЗАДСУ};
-      \item представените от кандидата резултати в дисертационния труд и научни трудове към него не повтарят такива от предишни процедури за придобиване на научно звание и академична длъжност;
+      \item представените от кандидата резултати в дисертационния труд и научни трудове към него не повтарят такива от предишни процедури за придобиване на научно звание;
       \item няма доказано по законоустановения ред плагиатство в представения дисертационен труд и научни трудове  по тази процедура.
       \end{enumerate}
       \fi
@@ -286,7 +286,7 @@
       After a detailed review I confirm that:
       \begin{enumerate}[label=\alph*)]
       \item the sumitted publications are in full compliance with the minimal national requirements under Art. 2b (2) and (3) of \nohyphens{ZRASRB}, Section~III and Appendix to Art.~1a (1) of \nohyphens{PPZRASRB} as well as with the additional requirements in \nohyphens{PURPNSZADSU};
-      \item none of the submitted publications have been submitted in a preceding procedure for acquiring a scientific title or an academic position;
+      \item none of the submitted publications have been submitted in a preceding procedure for acquiring a scientific degree;
       \item there is no lawful evidence for plagiarism in the submitted publications.
       \end{enumerate}
 
