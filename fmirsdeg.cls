@@ -108,7 +108,7 @@
       \vspace{3ex}
     \end{center}
 
-      \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.}
+      \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по процедурата съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.}
 
   \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\arabic*.}]
@@ -242,7 +242,7 @@
       \vspace{3ex}
     \end{center}
 
-      \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.}
+      \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this procedure by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.}
 
   \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\arabic*.}]
