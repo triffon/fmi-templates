@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2021/03/13 v0.7 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2021/04/03 v0.7 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -143,7 +143,7 @@
         \ifnum\fmi@conclusion=1
         След подробен преглед установих, че:
         \begin{enumerate}[label=\alph*)]
-        \item представените от кандидата научни трудове отговарят на минималните национални изисквания по чл.~2б, ал.~2 и 3 на \nohyphens{ЗРАСРБ}раздел III и приложението към чл.~1а, ал.~1 на  \nohyphens{ППЗРАСРБ} и на съответните допълнителни изисквания в \nohyphens{ПУРПНСЗАДСУ};
+        \item представените от кандидата научни трудове отговарят на минималните национални изисквания по чл.~2б, ал.~2 и 3 на \nohyphens{ЗРАСРБ}, раздел III и приложението към чл.~1а, ал.~1 на  \nohyphens{ППЗРАСРБ} и на съответните допълнителни изисквания в \nohyphens{ПУРПНСЗАДСУ};
         \item представените от кандидата научни трудове не повтарят такива от предишни процедури за придобиване на научно звание и академична длъжност;
         \item няма доказано по законоустановения ред плагиатство в представените по конкурса научни трудове.
         \end{enumerate}
