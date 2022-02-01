@@ -264,7 +264,11 @@
         For the purposes of the competition \fmi@candidatename\ has presented a total of \arabic{fmi@titlecount} titles, including \fmi@titlelist.
 
         \ifnum\fmi@otherdocscount>0
-        The candidate has submitted a total of \fmi@otherdocscount\ additional documents supporting professional achievements.
+        \ifnum\fmi@otherdocscount>1
+        The candidate has submitted a total of \fmi@otherdocscount\ additional documents supporting the professional achievements.
+        \else
+        The candidate has submitted one additional document supporting the professional achievements.
+        \fi
 
         \fmi@otherdocscomment
         \else
