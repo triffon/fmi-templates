@@ -3,22 +3,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2021/04/03 v0.7 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2022/02/02 v0.8 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
+
+\AddToHook{env/statement/before}{\begin{document}}
+\AddToHook{env/statement/after}{\end{document}}
+\AddToHook{env/review/before}{\begin{document}}
+\AddToHook{env/review/after}{\end{document}}
 
 % становище
 \newenvironment{statement}{
   \gdef\fmi@documenttype{\fmi@statement}
   \gdef\fmi@documentpreparedby{\fmi@statementpreparedby}
   \gdef\fmi@thedocument{\fmi@thestatement}
-  \document
   \fmi@rshead
 }{
   \fmi@rsfoot
-  \enddocument
 }
 
 % рецензия
@@ -26,11 +29,9 @@
   \gdef\fmi@documenttype{\fmi@review}
   \gdef\fmi@documentpreparedby{\fmi@reviewpreparedby}
   \gdef\fmi@thedocument{\fmi@thereview}
-  \document
   \fmi@rshead
 }{
   \fmi@rsfoot
-  \enddocument
 }
 
 % доцент
