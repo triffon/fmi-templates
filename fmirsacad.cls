@@ -275,6 +275,8 @@
         The candidate has not submitted any further documents in addition to the documents required by way of procedure.
         \fi
 
+        \fmi@generaldocscomment
+
       \item \textbf{Short Biographical Data}
 
         \fmi@candidatedata
