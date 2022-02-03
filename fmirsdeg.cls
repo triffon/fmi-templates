@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsdeg}[2022/02/02 v0.8 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
+\ProvidesClass{fmirsdeg}[2022/02/04 v0.8.1 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -501,7 +501,7 @@
 \def\candidate{\fmi@candidatename\xspace}
 
 % голяма първа буква
-\def\Candidate{\xmakefirstuc{\fmi@candidatename}\xspace}
+\def\Candidate{\emakefirstuc{\fmi@candidatename}\xspace}
 
 \newcounter{fmi@titlecount}
 
