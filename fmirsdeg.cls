@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsdeg}[2022/02/04 v0.8.1 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
+\ProvidesClass{fmirsdeg}[2022/02/05 v0.8.2 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -238,7 +238,7 @@
       \fmi@progchair{%
       doctoral programme ``\fmi@programme'',\\
       department \fmi@chair,}
-      Faculty of Mathematics and Informatics,\\
+      Faculty of Mathematics and Informatics (FMI),\\
       at Sofia University ``St. Kliment Ohridski'' (SU).
       \vspace{3ex}
     \end{center}

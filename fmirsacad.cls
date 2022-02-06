@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2022/02/04 v0.8.1 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2022/02/06 v0.8.2 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -239,7 +239,7 @@
       \fmi@position\\
       in professional field \fmi@field,\\
       at Sofia University ``St. Kliment Ohridski'' (SU),\\
-      Faculty of Mathematics and Informatics,\\
+      Faculty of Mathematics and Informatics (FMI),\\
       announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and the internet sites of FMI and SU
       \vspace{3ex}
     \end{center}
