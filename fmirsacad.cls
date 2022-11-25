@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2022/02/06 v0.8.2 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2022/11/25 v0.8.3 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -36,12 +36,12 @@
 
 % доцент
 \DeclareOption{assocprof}{
-  \def\fmi@position{``\fmi@assocprof''}
+  \def\fmi@position{\fmi@assocprof}
 }
 
 % професор
 \DeclareOption{prof}{
-  \def\fmi@position{``\fmi@prof''}
+  \def\fmi@position{\fmi@prof}
 }
 
 \DeclareOption{bulgarian}{
@@ -55,8 +55,8 @@
   \def\fmi@reviewpreparedby{Рецензията е изготвена от}
   \def\fmi@thereview{рецензията}
 
-  \def\fmi@assocprof{доцент}
-  \def\fmi@prof{професор}
+  \def\fmi@assocprof{\glqq доцент\grqq}
+  \def\fmi@prof{\glqq професор\grqq}
 
   \def\fmi@singlecandidate{е подал документи \textbf{единствен кандидат}}
   \def\fmi@manycandidates{са подали документи \textbf{следните кандидати}}
@@ -94,7 +94,7 @@
       по конкурс за заемане на академична длъжност\\
       \fmi@position\\
       в професионално направление \fmi@field,\\
-      за нуждите на Софийски университет ``Св. Климент Охридски'' (СУ),\\
+      за нуждите на Софийски университет \glqq Св. Климент Охридски\grqq (СУ),\\
       Факултет по математика и информатика (ФМИ),\\
       обявен в ДВ бр. \fmi@stategazetteno\ от \fmi@stategazettedate\ и на интернет страниците на ФМИ и СУ
       \vspace{3ex}
@@ -115,7 +115,7 @@
       \begin{enumerate}[label=\textbf{\arabic*.}]
       \item \textbf{Данни за кандидатурата}
 
-        Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ ``Св. Климент Охридски'' (\nohyphens{ПУРПНСЗАДСУ}).
+        Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ \glqq Св. Климент Охридски\grqq (\nohyphens{ПУРПНСЗАДСУ}).
 
         За участие в конкурса кандидатът \fmi@candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч. \fmi@titlelist.
 
@@ -176,7 +176,7 @@
 
     \item \textbf{\MakeUppercase{Общо заключение}}
 
-      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ ``Св. Климент Охридски'' да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
+      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ \glqq Св. Климент Охридски\grqq да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -199,8 +199,8 @@
   \def\fmi@reviewpreparedby{This review is written and submitted by}
   \def\fmi@thereview{the review} % не се използва
 
-  \def\fmi@assocprof{Associate Professor}
-  \def\fmi@prof{Professor}
+  \def\fmi@assocprof{``Associate Professor''}
+  \def\fmi@prof{``Professor''}
 
   \def\fmi@singlecandidate{A \textbf{single candidate} has submitted an application}
   \def\fmi@manycandidates{\textbf{The following candidates} have submitted applications}

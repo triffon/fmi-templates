@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsdeg}[2022/02/05 v0.8.2 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
+\ProvidesClass{fmirsdeg}[2022/11/25 v0.8.3 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -40,13 +40,13 @@
 
 % доктор
 \DeclareOption{phd}{
-  \def\fmi@degree{\fmi@esdeg\ ``\fmi@phd''}
+  \def\fmi@degree{\fmi@esdeg\ \fmi@phd}
   \def\fmi@progchair#1{#1}
 }
 
 % доктор на науките
 \DeclareOption{dsc}{
-  \def\fmi@degree{\fmi@sdeg\ ``\fmi@dsc''}
+  \def\fmi@degree{\fmi@sdeg\ \fmi@dsc}
   \def\fmi@progchair#1{}
 }
 
@@ -63,8 +63,8 @@
 
   \def\fmi@esdeg{образователна и \fmi@sdeg\xspace}
   \def\fmi@sdeg{научна степен}
-  \def\fmi@phd{доктор}
-  \def\fmi@dsc{доктор на науките}
+  \def\fmi@phd{\glqq доктор\grqq}
+  \def\fmi@dsc{\glqq доктор на науките\grqq}
 
   \def\papers{\fmi@titletype{публикации в български и чуждестранни научни издания и научни форуми}}
   \def\studia{\fmi@titletype{студии}}
@@ -102,10 +102,10 @@
       в научна област \fmi@area,\\
       професионално направление \fmi@field,\\
       \fmi@progchair{%
-      докторска програма ``\fmi@programme'',\\
+      докторска програма \glqq\fmi@programme\grqq,\\
       катедра \fmi@chair,\\}
       Факултет по математика и информатика (ФМИ),\\
-      Софийски университет ``Св. Климент Охридски'' (СУ).
+      Софийски университет \glqq Св. Климент Охридски\grqq (СУ).
       \vspace{3ex}
     \end{center}
 
@@ -115,7 +115,7 @@
     \begin{enumerate}[label=\textbf{\arabic*.}]
     \item \textbf{Обща характеристика на дисертационния труд и предоставените материали}
 
-      Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ ``Св. Климент Охридски'' (\nohyphens{ПУРПНСЗАДСУ}).
+      Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ \glqq Св. Климент Охридски\grqq (\nohyphens{ПУРПНСЗАДСУ}).
 
       Представеният дисертационен труд е в обем \fmi@pages\ страници и се състои от \fmi@chapters\ глави и библиография.
       Текстът е написан на \fmi@lang\ език и съдържа цитати към \fmi@refs\ източници.
@@ -199,8 +199,8 @@
 
   \def\fmi@esdeg{an educational and \fmi@sdeg\xspace}
   \def\fmi@sdeg{a scientific degree}
-  \def\fmi@phd{Doctor}
-  \def\fmi@dsc{Doctor of Sciences}
+  \def\fmi@phd{``Doctor''}
+  \def\fmi@dsc{``Doctor of Sciences''}
 
   \def\papers{\fmi@titletype{publications in domestic and international scientific issues and conferences}}
   \def\studia{\fmi@titletype{studia}}
