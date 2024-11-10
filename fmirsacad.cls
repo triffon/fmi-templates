@@ -100,7 +100,7 @@
       \vspace{3ex}
     \end{center}
 
-    \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
+    \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на \fmi@orderissuer.
 
     За участие в обявения конкурс \fmi@candidatenumber:
 
@@ -176,7 +176,7 @@
 
     \item \textbf{\MakeUppercase{Общо заключение}}
 
-      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на \fmi@institute при \fmi@organisation да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
+      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на \fmi@institute\ при \fmi@organisation\ да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -244,7 +244,7 @@
       \vspace{3ex}
     \end{center}
 
-    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by \fmi@orderissuer\ in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
@@ -318,7 +318,7 @@
 
     \item \textbf{\MakeUppercase{General Conclusion}}
 
-      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the \fmi@institute at \fmi@organisation to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
+      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the \fmi@institute\ at \fmi@organisation\ to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -392,7 +392,7 @@
     \fmi@tmpbody}
 }
 
-% генеричина команда за създаване на две нови променлива, установяване на стойности по подразбиране
+% генеричина команда за създаване на две нови променливи, установяване на стойности по подразбиране
 % и на команда за едновременното задаване на стойности на променливите
 % \edef\fmi@newvars#1#2#3#4#5{
 \newcommand{\fmi@newvars}[5]{
@@ -431,6 +431,9 @@
 
 % номер и дата на заповед
 \fmi@newvars{order}{no}{date}\ldots\ldots
+
+% издаващ заповедта
+\fmi@newvar{orderissuer}\ldots
 
 % брой на другите документи (във вид на служебни бележки и удостоверения от работодател,
 % ръководител на проект, финансираща организация или възложител на проект,
