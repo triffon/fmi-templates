@@ -1,9 +1,9 @@
-%m%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Базови настройки %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2022/11/25 v0.8.3 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2024/11/10 v0.9 Template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -94,8 +94,8 @@
       по конкурс за заемане на академична длъжност\\
       \fmi@position\\
       в професионално направление \fmi@field,\\
-      за нуждите на Софийски университет \glqq Св. Климент Охридски\grqq (СУ),\\
-      Факултет по математика и информатика (ФМИ),\\
+      за нуждите на \fmi@organisation\ (\fmi@org),\\
+      \fmi@institute\ (\fmi@inst),\\
       обявен в ДВ бр. \fmi@stategazetteno\ от \fmi@stategazettedate\ и на интернет страниците на ФМИ и СУ
       \vspace{3ex}
     \end{center}
@@ -176,7 +176,7 @@
 
     \item \textbf{\MakeUppercase{Общо заключение}}
 
-      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ \glqq Св. Климент Охридски\grqq да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
+      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на \fmi@institute при \fmi@organisation да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -238,8 +238,8 @@
       on the competition for the academic position\\
       \fmi@position\\
       in professional field \fmi@field,\\
-      at Sofia University ``St. Kliment Ohridski'' (SU),\\
-      Faculty of Mathematics and Informatics (FMI),\\
+      at \fmi@organisation\ (\fmi@org),\\
+      \fmi@institute\ (\fmi@inst),\\
       announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and the internet sites of FMI and SU
       \vspace{3ex}
     \end{center}
@@ -318,7 +318,7 @@
 
     \item \textbf{\MakeUppercase{General Conclusion}}
 
-      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the Faculty of Mathematics and Informatics at Sofia University ``St. Kliment Ohridski'' to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
+      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the \fmi@institute at \fmi@organisation to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -409,6 +409,18 @@
 
 % професионално направление
 \fmi@newvar{field}\ldots
+
+% организация, за чиито цели е конкурсът
+\fmi@newvar{organisation}\ldots
+
+% съкратено име на организация, за чиито цели е конкурсът
+\fmi@newvar{org}\ldots
+
+% институт или факултет на организацията, за чиито цели е конкурсът
+\fmi@newvar{institute}\ldots
+
+% съкратено име на институт или факултет на организацията, за чиито цели е конкурсът
+\fmi@newvar{inst}\ldots
 
 % брой и дата на държавен вестник
 \fmi@newvars{stategazette}{no}{date}\ldots\ldots
