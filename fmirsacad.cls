@@ -1,9 +1,9 @@
-%m%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Базови настройки %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2022/11/25 v0.8.3 Faculty of Mathematics and Informatics template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2024/11/10 v0.9 Template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -44,9 +44,59 @@
   \def\fmi@position{\fmi@prof}
 }
 
+% ФМИ на СУ
+\DeclareOption{fmi}{
+  \def\fmi@bulgarian@orgvars{
+    \def\fmi@organisation{Софийски университет „Св. Климент Охридски“}
+    \def\fmi@org{СУ}
+    \def\fmi@institute{Факултет по математика и информатика}
+    \def\fmi@inst{ФМИ}
+    \def\fmi@orderissuer{Ректора на Софийския университет}
+    \def\fmi@orgregulations{Правилника за условията и реда за придобиване на научни степени и за заемане на академични длъжности в СУ \glqq Св. Климент Охридски\grqq}
+    \def\fmi@orgreg{ПУРПНСЗАДСУ}
+    \def\fmi@sitenotice{интернет страниците на ФМИ и СУ}
+  }
+  \def\fmi@english@orgvars{
+    \def\fmi@organisation{Sofia University ``St. Kliment Ohridski''}
+    \def\fmi@org{SU}
+    \def\fmi@institute{Faculty of Mathematics and Informatics}
+    \def\fmi@inst{FMI}
+    \def\fmi@orderissuer{the Rector of SU}
+    \def\fmi@orgregulations{Regulations Act about the Terms and Conditions for Acquisition of Academic Degrees and Occupation of Academic Positions at SU}
+    \def\fmi@orgreg{PURPNSZADSU}
+    \def\fmi@sitenotice{the internet sites of FMI and SU}
+  }
+}
+
+% ИМИ на БАН
+\DeclareOption{imi}{
+  \def\fmi@bulgarian@orgvars{
+    \def\fmi@organisation{Българска академия на науките}
+    \def\fmi@org{БАН}
+    \def\fmi@institute{Институт по математика и информатика}
+    \def\fmi@inst{ИМИ}
+    \def\fmi@orderissuer{Директора на Института по математика и информатика}
+    \def\fmi@orgregulations{Правилника за условията и реда за придобиване на научни степени и за заемане на академични длъжности в Българска академия на науките}
+    \def\fmi@orgreg{ПУРПНСЗАДБАН}
+    \def\fmi@sitenotice{интернет страницата на БАН}
+  }
+  \def\fmi@english@orgvars{
+    \def\fmi@organisation{Bulgarian Academy of Sciences}
+    \def\fmi@org{BAS}
+    \def\fmi@institute{Institute of Mathematics and Informatics}
+    \def\fmi@inst{IMI}
+    \def\fmi@orderissuer{the Director of IMI – BAS}
+    \def\fmi@orgregulations{Regulations Act about the Terms and Conditions for Acquisition of Academic Degrees and Occupation of Academic Positions at BAS}
+    \def\fmi@orgreg{PURPNSZADBAS}
+    \def\fmi@sitenotice{the internet site of BAS}
+  }
+}
+
 \DeclareOption{bulgarian}{
   % български език
   \PassOptionsToPackage{bulgarian}{babel}
+
+  \fmi@bulgarian@orgvars
 
   \def\fmi@statement{становище}
   \def\fmi@statementpreparedby{Становището е изготвено от}
@@ -94,13 +144,13 @@
       по конкурс за заемане на академична длъжност\\
       \fmi@position\\
       в професионално направление \fmi@field,\\
-      за нуждите на Софийски университет \glqq Св. Климент Охридски\grqq (СУ),\\
-      Факултет по математика и информатика (ФМИ),\\
-      обявен в ДВ бр. \fmi@stategazetteno\ от \fmi@stategazettedate\ и на интернет страниците на ФМИ и СУ
+      за нуждите на \fmi@organisation\ (\fmi@org),\\
+      \fmi@institute\ (\fmi@inst),\\
+      обявен в ДВ бр. \fmi@stategazetteno\ от \fmi@stategazettedate\ и на \fmi@sitenotice
       \vspace{3ex}
     \end{center}
 
-    \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.
+    \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по конкурса съгласно Заповед \fmi@orderno/\fmi@orderdate\ на \fmi@orderissuer.
 
     За участие в обявения конкурс \fmi@candidatenumber:
 
@@ -115,7 +165,7 @@
       \begin{enumerate}[label=\textbf{\arabic*.}]
       \item \textbf{Данни за кандидатурата}
 
-        Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и Правилника за условията и реда за придобиване на научни степени и заемане на академични длъжности в СУ \glqq Св. Климент Охридски\grqq (\nohyphens{ПУРПНСЗАДСУ}).
+        Представените по конкурса документи от кандидата съответстват на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и \fmi@orgregulations\ (\nohyphens{\fmi@orgreg}).
 
         За участие в конкурса кандидатът \fmi@candidatename\ е представил списък от общо \arabic{fmi@titlecount} заглавия, в т.ч. \fmi@titlelist.
 
@@ -144,7 +194,7 @@
         \ifnum\fmi@conclusion=1
         След подробен преглед установих, че:
         \begin{enumerate}[label=\alph*)]
-        \item представените от кандидата научни трудове отговарят на минималните национални изисквания по чл.~2б, ал.~2 и 3 на \nohyphens{ЗРАСРБ}, раздел III и приложението към чл.~1а, ал.~1 на  \nohyphens{ППЗРАСРБ} и на съответните допълнителни изисквания в \nohyphens{ПУРПНСЗАДСУ};
+        \item представените от кандидата научни трудове отговарят на минималните национални изисквания по чл.~2б, ал.~2 и 3 на \nohyphens{ЗРАСРБ}, раздел III и приложението към чл.~1а, ал.~1 на  \nohyphens{ППЗРАСРБ} и на съответните допълнителни изисквания в \nohyphens{\fmi@orgreg};
         \item представените от кандидата научни трудове не повтарят такива от предишни процедури за придобиване на научно звание и академична длъжност;
         \item няма доказано по законоустановения ред плагиатство в представените по конкурса научни трудове.
         \end{enumerate}
@@ -168,7 +218,7 @@
 
       \item \textbf{Заключение за кандидатурата}
 
-        След като се запознах с представените в конкурса материали и научни трудове и въз основа на направения анализ на тяхната значимост и съдържащи се в тях научни и научно-приложни приноси, \fmi@confirm, че научните постижения отговарят на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и \nohyphens{ПУРПНСЗАДСУ} за заемане от кандидата на академичната длъжност \fmi@position\ в научната област и професионално направление на конкурса.
+        След като се запознах с представените в конкурса материали и научни трудове и въз основа на направения анализ на тяхната значимост и съдържащи се в тях научни и научно-приложни приноси, \fmi@confirm, че научните постижения отговарят на изискванията на \nohyphens{ЗРАСРБ}, \nohyphens{ППЗРАСРБ} и \nohyphens{\fmi@orgreg} за заемане от кандидата на академичната длъжност \fmi@position\ в научната област и професионално направление на конкурса.
         В частност, кандидатът удовлетворява минималните национални изисквания в професионалното направление и не е установено плагиатство в представените по конкурса научни трудове.
 
         Давам своята \textbf{\fmi@evaluation} оценка на кандидатурата.
@@ -176,7 +226,7 @@
 
     \item \textbf{\MakeUppercase{Общо заключение}}
 
-      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на Факултета по математика и информатика при СУ \glqq Св. Климент Охридски\grqq да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
+      Въз основа на гореизложеното, \textbf{\fmi@recommendation} на научното жури да предложи на компетентния орган по избора на \fmi@institute\ при \fmi@organisation\ да избере \fmi@candidatename\ да заеме академичната длъжност \fmi@position\ в професионално направление \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -190,6 +240,8 @@
 \DeclareOption{english}{
   % English
   \PassOptionsToPackage{main=english}{babel}
+
+  \fmi@english@orgvars
 
   \def\fmi@statement{statement}
   \def\fmi@statementpreparedby{This statement is written and submitted by}
@@ -238,13 +290,13 @@
       on the competition for the academic position\\
       \fmi@position\\
       in professional field \fmi@field,\\
-      at Sofia University ``St. Kliment Ohridski'' (SU),\\
-      Faculty of Mathematics and Informatics (FMI),\\
-      announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and the internet sites of FMI and SU
+      at \fmi@organisation\ (\fmi@org),\\
+      \fmi@institute\ (\fmi@inst),\\
+      announced in State Gazette No.\fmi@stategazetteno/\fmi@stategazettedate\ and \fmi@sitenotice
       \vspace{3ex}
     \end{center}
 
-    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.
+    \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this competition by \fmi@orderissuer\ in accordance with Order \fmi@orderno/\fmi@orderdate.
 
     \fmi@candidatenumber\ for this competition:
 
@@ -259,7 +311,7 @@
       \begin{enumerate}[label=\textbf{\arabic*.}]
       \item \textbf{Application Details}
 
-        The documents submitted by the candidate are in full compliance with the requirements of the Academic Staff Development Act (\nohyphens{ZRASRB}), the Regulations Act for the Implementation of \nohyphens{ZRASRB} (\nohyphens{PPZRASRB}), and the Regulations Act about the Terms and Conditions for Acquisition of Academic Degrees and Occupation of Academic Positions at SU (\nohyphens{PURPNSZADSU}).
+        The documents submitted by the candidate are in full compliance with the requirements of the Academic Staff Development Act (\nohyphens{ZRASRB}), the Regulations Act for the Implementation of \nohyphens{ZRASRB} (\nohyphens{PPZRASRB}), and the \fmi@orgregulations (\nohyphens{\fmi@orgreg}).
 
         For the purposes of the competition \fmi@candidatename\ has presented a total of \arabic{fmi@titlecount} titles, including \fmi@titlelist.
 
@@ -310,7 +362,7 @@
 
       \item \textbf{Conclusion}
 
-        Based on the review of the documents and scientific publications submitted for this competition, as well as on the analysis of their significance and the theoretical and applied contributions, I hereby \fmi@confirm\ that the scientific achievements of the candidate meet and exceed the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{PURPNSZADSU} for acquiring the academic position \fmi@position\ in the scientific and professional field of this competition.
+        Based on the review of the documents and scientific publications submitted for this competition, as well as on the analysis of their significance and the theoretical and applied contributions, I hereby \fmi@confirm\ that the scientific achievements of the candidate meet and exceed the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{\fmi@orgreg} for acquiring the academic position \fmi@position\ in the scientific and professional field of this competition.
         More specifically, the candidate satisfies the minimal national requirements of the professional field and no plagiarism has been detected in the submitted scientific publications submitted.
 
         I hereby state my \textbf{\fmi@evaluation} assessment of the application of \fmi@candidatename.
@@ -318,7 +370,7 @@
 
     \item \textbf{\MakeUppercase{General Conclusion}}
 
-      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the Faculty of Mathematics and Informatics at Sofia University ``St. Kliment Ohridski'' to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
+      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to propose to the competent authority of the \fmi@institute\ at \fmi@organisation\ to elect \fmi@candidatename\ to the academic position \fmi@position\ in professional field \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -332,8 +384,8 @@
 % предаване на всички непознати опции към базовия клас report
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 
-% становище на български език за доцент по подразбиране
-\ExecuteOptions{bulgarian,assocprof}
+% становище на български език за доцент към ФМИ по подразбиране
+\ExecuteOptions{fmi,bulgarian,assocprof}
 
 % обработка на опциите
 \ProcessOptions
@@ -392,7 +444,7 @@
     \fmi@tmpbody}
 }
 
-% генеричина команда за създаване на две нови променлива, установяване на стойности по подразбиране
+% генеричина команда за създаване на две нови променливи, установяване на стойности по подразбиране
 % и на команда за едновременното задаване на стойности на променливите
 % \edef\fmi@newvars#1#2#3#4#5{
 \newcommand{\fmi@newvars}[5]{
