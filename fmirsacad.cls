@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsacad}[2024/11/10 v0.9 Template for reviews and statements for academic positions]
+\ProvidesClass{fmirsacad}[2024/11/12 v0.9.1 Template for reviews and statements for academic positions]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -200,9 +200,13 @@
         \end{enumerate}
         \fi
 
-      \item \textbf{Характеристика и оценка на преподавателската дейност на кандидата}
+        % пропускане на преподавателската дейност, ако не е зададена
+        \ifdefstring{\fmi@teachingreview}{\ldots}{}{
 
-        \fmi@teachingreview
+          \item \textbf{Характеристика и оценка на преподавателската дейност на кандидата}
+
+            \fmi@teachingreview
+          }
 
       \item \textbf{Съдържателен анализ на научните и научно-приложните постижения на кандидата съдържащи се в материалите за участие в конкурса}
 
