@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmirsdeg}[2022/11/25 v0.8.3 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
+\ProvidesClass{fmirsdeg}[2025/05/20 v0.10 Faculty of Mathematics and Informatics template for reviews and statements for educational and scientific degrees]
 
 % шрифтове и кодирания
 \RequirePackage[utf8]{inputenc}
@@ -96,7 +96,9 @@
       \onehalfspacing
       \Large\bfseries\MakeUppercase{\fmi@documenttype}\\[2ex]
       \small
-      по процедура за придобиване на \fmi@degree\\
+      по процедура за защита на дисертационен труд на тема:\\
+      \glqq\fmi@thesistitle\grqq\\
+      за придобиване на \fmi@degree\\
       от\\
       кандидат \fmi@candidatename,\\
       в научна област \fmi@area,\\
@@ -109,7 +111,7 @@
       \vspace{3ex}
     \end{center}
 
-      \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството му на член на научното жури по процедурата съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.}
+      \fmi@documentpreparedby\ \fmi@reviewer, професионално направление \fmi@reviewerfield, в качеството ми на член на научното жури, съгласно Заповед \fmi@orderno/\fmi@orderdate\ на Ректора на Софийския университет.}
 
   \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\arabic*.}]
@@ -189,16 +191,16 @@
   % English
   \PassOptionsToPackage{main=english}{babel}
 
-  \def\fmi@statement{statement}
-  \def\fmi@statementpreparedby{This statement is written and submitted by}
-  \def\fmi@thestatement{the statement} % не се използва
+  \def\fmi@statement{statement report}
+  \def\fmi@statementpreparedby{This statement report has been prepared by}
+  \def\fmi@thestatement{the statement report} % не се използва
 
   \def\fmi@review{review}
-  \def\fmi@reviewpreparedby{This review is written and submitted by}
+  \def\fmi@reviewpreparedby{This review has been prepared by}
   \def\fmi@thereview{the review} % не се използва
 
-  \def\fmi@esdeg{an educational and \fmi@sdeg\xspace}
-  \def\fmi@sdeg{a scientific degree}
+  \def\fmi@esdeg{educational and \fmi@sdeg\xspace}
+  \def\fmi@sdeg{scientific degree}
   \def\fmi@phd{``Doctor''}
   \def\fmi@dsc{``Doctor of Sciences''}
 
@@ -232,8 +234,11 @@
       \onehalfspacing
       \Large\bfseries\MakeUppercase{\fmi@documenttype}\\[2ex]
       \small
-      on the procedure for attaining \fmi@degree\\
-      in scientific area \fmi@area,\\
+      under the procedure for acquisition of the \fmi@degree\\
+      by candidate \fmi@candidatename\\
+      of the PhD thesis entitled:\\
+      ``\fmi@thesistitle''\\
+      in scientific field \fmi@area,\\
       professional field \fmi@field,\\
       \fmi@progchair{%
       doctoral programme ``\fmi@programme'',\\
@@ -243,11 +248,11 @@
       \vspace{3ex}
     \end{center}
 
-      \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, appointed to the academic jury for this procedure by the Rector of SU in accordance with Order \fmi@orderno/\fmi@orderdate.}
+      \fmi@documentpreparedby\ \fmi@reviewer, professional field \fmi@reviewerfield, as a member of the scientific jury for this procedure in accordance with Order \fmi@orderno/\fmi@orderdate\ of the Rector of Sofia University.}
 
   \def\fmi@rsbody{
     \begin{enumerate}[label=\textbf{\arabic*.}]
-    \item \textbf{General Description of the Dissertation and the Submitted Documents}
+    \item \textbf{General characteristics of the dissertation thesis and the presented materials}
 
       The documents submitted by the candidate are in full compliance with the requirements of the Academic Staff Development Act (\nohyphens{ZRASRB}), the Regulations Act for the Implementation of \nohyphens{ZRASRB} (\nohyphens{PPZRASRB}), and the Regulations Act about the Terms and Conditions for Acquisition of Academic Degrees and Occupation of Academic Positions at SU (\nohyphens{PURPNSZADSU}).
 
@@ -270,17 +275,17 @@
       The candidate has not submitted any further documents in addition to the documents required by way of procedure.
       \fi
 
-    \item \textbf{Data and Personal Impressions of the Candidate}
+    \item \textbf{Short CV and personal impressions of the candidate}
 
       \fmi@candidatedata
 
       \fmi@personalcomments
 
-    \item \textbf{Analysis of the Content of the Theoretical and Applied Contributions Described in the Submitted Publications}
+    \item \textbf{Content analysis of the scientific and applied achievements of the candidate, contained in the presented thesis and the publications included in the procedure}
 
       \fmi@scientificreview
 
-    \item \textbf{General Evaluation of Scientific Work and Professional Achievements}
+    \item \textbf{Approbation of the results}
 
       \fmi@resultsreview
 
@@ -291,20 +296,20 @@
       \item there is no lawful evidence for plagiarism in the submitted publications.
       \end{enumerate}
 
-    \item \textbf{Qualities of the Autoreferate}
+    \item \textbf{Qualities of the abstract}
 
       \fmi@autorefreview
 
-    \item \textbf{Critical Remarks and Recommendations}
+    \item \textbf{Critical notes and recommendations}
 
         \fmi@recommendations
 
     \item \textbf{Conclusion}
 
-      Based on the review of the dissertation and its accompanying scientific publications, as well as on the analysis of their significance and the theoretical and applied contributions, I hereby \fmi@confirm\ that the scientific achievements of the candidate meet and exceed the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{PURPNSZADSU} for acquiring \fmi@degree\ in the scientific area \fmi@area\ and professional field \fmi@field.
-      More specifically, the candidate satisfies the minimal national requirements of the professional field and no plagiarism has been detected in the submitted scientific publications submitted.
+      Having become acquainted with the thesis presented in the procedure and the accompanying scientific papers, as well as on the analysis of their importance and the scientific and applied contributions contained therein, I hereby \fmi@confirm\ that the presented thesis and the scientific publications attached to it, as well as the quality and originality of the results and achievements presented in them, meet the requirements of \nohyphens{ZRASRB}, \nohyphens{PPZRASRB}, and \nohyphens{PURPNSZADSU} for acquisition of the candidate of \fmi@degree\ in the Scientific field \fmi@area\ and Professional field \fmi@field.
+      In particular, the candidate meets the minimal national requirements of the professional field and no plagiarism has been detected in the scientific publications submitted for the procedure.
 
-      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to award \fmi@candidatename\ with \fmi@degree\ in scientific area \fmi@area,  professional field \fmi@field.
+      Based on the above, I hereby \textbf{\fmi@recommendation} to the scientific jury to award \fmi@candidatename\ with \fmi@degree\ in the Scientific field \fmi@area,  Professional field \fmi@field.
     \end{enumerate}}
 
   \def\fmi@rsfoot{
@@ -392,6 +397,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Обикновени променливи %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% тема на дисертационен труд
+\fmi@newvar{thesistitle}\ldots
 
 % кандидат: титла и три имена
 \fmi@newvar{candidatename}\ldots
